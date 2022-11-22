@@ -1,120 +1,312 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: content-box;
-	font-family: 'Outfit', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
 }
 
 body {
-	width: 100%;
-	height: 50vh;
-	background-image: url(back.jpg);
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	display: flex;
-	align-items: stretch;
-	justify-content: stretch;
+  position: relative;
+  min-height: 100vh;
+  max-width: 1000px;
+  margin: auto;
+  background-position: center;
+  background-size: cover;
+
+  /*overflow-y: hidden;*/
 }
 
-.container {
-	max-width: 1500px;
-	margin:  auto;
-}
+.container{ /*container*/
 
-form {
-    position: relative;
-    width: 1850;
-	background: rgb(255, 255, 255);
-	max-width: 900px;
-	height: 800px;
-	padding: 60px;
-	border-radius: 90px;
-}
-
-.intro {
-
-    position:sticky;
-    left:50%;
-    top:30px;
-    margin-left:-20px;
-    margin-top:-150px;
-
+ /* align-items: center;
+  justify-items: center;*/
+  padding: 0%;
+  margin: auto;
+  position: relative;
+  width:-80px;
+  background: white;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50px 800px 60px;
+  grid-row-gap: 35px;
+  grid-template-areas: "titulo  titulo"
+                        "esquerda direita"
+                        "footer footer" ;
 
 }
 
-form coluna2 {
-    position:absolute;
-    left:50%;
-    top:50%;
-    margin-left:-45px;
-    margin-top:-150px;
+.top {  
+  position: relative;
+  text-align: center;
+  background: white;
+  grid-area: titulo;
 }
 
-form p {
-	text-align: start;
-	margin: 20px 0;
-
+.esquerda {
+  position: relative;
+  left: 50px;
+  background: white;  
+  grid-area: esquerda;
 }
+
+.direita {
+  position: relative;
+  left: 100px;
+  background: white; 
+  grid-area: direita; 
+}
+
+.rodape {
+  position: relative;
+  text-align: center;
+  background: white;
+  grid-area: footer;
+}
+
+
+.checkbox {
+  padding: 6px;
+}
+
+.checkbox input {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.checkbox label {
+  position: relative;
+  padding-left: 2.2em;
+  display: inline-block;
+}
+
+.checkbox label::before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  height: 1.5em;
+  width: 1.5em;
+  background: #FFF;
+  margin-right: 0.5em;
+  border: 1px solid #999;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(0, -50%);
+}
+
+.checkbox label::after {
+  content: "\2713";
+  position: absolute;
+  top: 50%;
+  left: 0.75em;
+  transform: translate(-50%, -50%);
+  font-size: 1em;
+  color: #FFF;
+  opacity: 0;
+  transition: all 0.2s ease;
+}
+
+.checkbox label:focus::before,
+.checkbox label:hover::before {
+  background: #DDD;
+}
+
+.checkbox input:checked+label::before {
+  background: #228b22;
+  border-color: #228b22;
+}
+
+.checkbox input:checked+label::after {
+  opacity: 1;
+}
+
 
 .input-single {
-	position: relative;
-    width: 300;
-	margin: 15px 0;
+  position: relative;
+  width: 150px;
+  margin: 11px 0;
 }
 
 .input {
-	width: 100%;
-	border: 0;
-	border-bottom: 2 px solid #ccc;
-	padding: 5;
-	font-size: 17;
-	outline: 0;
+  padding: 5px;
+  width: 100%;
+  border: 0;
+  border-bottom: 2 px solid #ccc;
+  padding: 5px;
+  font-size: 13;
+  outline: 0;
 }
 
 form .input-single label {
-	position: absolute;
-	left: 0;
-	bottom: 5px;
-	cursor: text;
-	transition: all 0.6s;
-	color: #808080;
+  position: absolute;
+  left: 0;
+  bottom: 5px;
+  cursor: text;
+  transition: all 0.6s ease-out;
+  color: #808080;
 }
 
 form .input-single .input {
-	width: 100%;
-	border: 0;
-	border-bottom: 2px solid #808080;
-	padding: 5px;
-	outline: 0;
-	font-size: 16px;
+  padding: 5px;
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid #808080;
+  padding: 5px;
+  outline: 0;
+  font-size: 16px;
 }
 
 form .input-single .input:focus~label,
 form .input-single .input:valid~label {
-	transform: translateY(-20px);
-	font-size: 12px;
-	color: #2D5966;
+  transform: translateY(-20px);
+  font-size: 12px;
+  color: #2D5966;
 }
 
-.butt {
-	width: 100%;
-    position: absolute;
-    left: 0;
-    bottom: 40px;
-	text-align: center;
-    
-
+.textarea {
+  resize: none;
+  text-align: start;
+  background-color: #eeeeee;
+  color: #666666;
+  padding: 2em;
+  font-family: "Heebo", sans-serif;
+  font-size: 13px;
+  border-radius: 10px;
+  border: 2px solid;
 }
+
+.textarea:hover {
+  cursor: pointer;
+  background-color: #eeeeee;
+}
+
+.textarea:focus {
+  cursor: text;
+  color: #333333;
+  background-color: white;
+  border-color: #333333;
+}
+
+form h1 {
+  font-size: 20px;
+  color: #2D5966;
+  padding: 5px;
+}
+
+
+
+form p {
+  padding: 0px;
+  color: #2D5966;
+  font-size: 22px;
+}
+
+
+
 
 form input[type=submit] {
-	padding: 10px 50px;
-	border: 0;
-	border-radius: 10px;
-	background-color: #2D5966;
-	color: rgb(255, 255, 255);
-	cursor: pointer;
+
+  padding: 10px 50px;
+  border: 0;
+  border-radius: 10px;
+  background-color: #2D5966;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
 }
 
+*,
+
+*:before,
+*:after{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+
+
+form input[type=date]{
+background-color: #0080ff;
+padding: 5px;
+position: relative;
+transform: translate(-1%, 35%);
+top:20%;
+left: 1%;
+font-family: "Roboto Mono", monospace;
+color: #ffffff;
+font-size: 15px;
+border: none;
+outline: none;
+border-radius: 5px;
+}
+
+
+input::-webkit-calendar-picker-indicator {
+  background-color: #ffffff;
+  padding: 0px;
+  cursor: pointer;
+  border-radius: 3px;
+
+}
+
+#data{
+  top: 40%;
+  padding:0px ;
+  font-size: 15px;
+}
+
+
+
+
+
+
+
+@media only screen and (max-width: 700px) {
+ .container{
+    align-items: center;
+
+
+  
+ }
+ 
+ 
+ 
+  .direita { 
+ 
+  position: relative;
+  padding: 5%;
+  top: 97%;
+  left: -312px;
+  margin-top: -5%;
+  padding: 0%;
+  background: white;
+  grid-column: 2/3;
+  margin: 5px; 
+    
+    
+  }
+  .rodape { 
+     
+    top: 750px;
+  
+    
+  }
+}
+/*@media only screen and (max-width: 500px) {
+  .rodape { 
+     
+    top: 80%;
+    left: 2%;
+    
+  }
+}
