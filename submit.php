@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 
 //Digitando o caminho da biblioteca
 
@@ -16,27 +17,27 @@ use PHPMailer\PHPMailer\Exception;
 $mail = new PHPMailer(true);
 
 try {
-    
+
     //Setando as configuraçoes do servidor
     //$mail->SMTPDebug = SMTP:: DEBUG_SERVER;
 
     $mail->isSMTP();
-    $mail->SMTPSecure = false;
-    $mail->SMTPAutoTLS = false;
-    $mail->Host = 'smtp.furgaoibipora.com.br';
+    //$mail->SMTPSecure = false;
+    //$mail->SMTPAutoTLS = false;
+    $mail->Host = 'smtp.mailtrap.io';
     $mail->SMTPAuth = true;
-    $mail->Username = 'ficha.pedidoti@furgaoibipora.com';
-    $mail->Password = '794514@ibi';
-    $mail->Port = 587;
+    $mail->Username = '4e6cc92533268e';
+    $mail->Password = '0af298460f7c98';
+    $mail->Port = 2525;
 
     //Destinatario e remetente
-    $mail->setFrom('ficha.pedidoti@furgaoibipora.com', 'Ficha de Solicitações');
-    $mail->addAddress('manutencao.ti@furgaoibipora.com.br', 'Gabriel Ribeiro');
+    $mail->setFrom('ronaldo@fut.com', 'Ficha de Solicitações');
+    $mail->addAddress('teste@gmail.com', 'Gabriel Ribeiro');
 
     //Definindo o tipo de mensagem
     $mail->isHTML(true);
 
-    
+
     //propriedades importantes, a biblioteca phpmailer trabalha em 8 bits, utilizar utf-8 sem o encoding 64 pode causar alguns bugs.
 
     $mail->CharSet = 'UTF-8';
@@ -49,13 +50,16 @@ try {
     //Corpo do e-mail, importante ressaltar que a melhor opção é utilizar o metodo POST e não o GET
     //Por uma questão de boas praticas e para facilitar o debug.
 
-    $Body = "Solicitações de intens, segue: <br><br>
-    Nome:" . $_POST['texto1'] . "<br>
-    e-mail:" . $_POST['texto2'] . "<br>" . "<p>" . "Requisições" . "<br>" . $_POST['Notebook'] . "<br>" . $_POST['Desktop'] . "<br>" . $_POST['celular1'] . "<br>"
-        . $_POST['celular2'] . "<br>" . $_POST['Filtro_de_linha'] . "<br>" . $_POST['No-break'] . "<br>" . $_POST['Monitores'] . "<br>"
-        . $_POST['impressora1'] . "<br>" . $_POST['impressora2'] . "<br>" . $_POST['libre_office'] . "<br>" . $_POST['email'] . "<br><br> Licenças: <br><br>" . $_POST['microsiga1'] . "<br>" . $_POST['microsiga2'] . "<br>"
-        . $_POST['autocad'] . "<br>" . $_POST['solid'] . "<br>" . $_POST['pdm'] . "<br>" . $_POST['office'] . "<br>" . $_POST['pwbi'] . "<br>" . $_POST["Adobe"] . "<br>" . $_POST['zoom'] . "<br>"
-        . $_POST['skype'] . "<br>" . $_POST['teams'] . "<br>" . $_POST['certificado'] . "<br>" . $_POST['a3'];
+    $Body = "<h1> Solicitação de equipamento: </h1> <br> <p> Dados do Solicitante:</p><br>
+    Nome: " . $_POST['texto1'] . "<br>
+    Cargo: " . $_POST['texto2']. "<br> Local Fisico: " . $_POST['texto3'] . "<br> Contato: " . $_POST['texto4'] ."<br>
+    <p> Dados novo colaborador:</p>" . "Nome: ". $_POST['texto5']  . "<br> Cargo: " . $_POST['texto6'] . "<br> Local Fisico: " . $_POST['texto7'] . "<br> Data de inicio: " . $_POST['data']
+     . "<p> Requisições: </P>" . "<br>" . $_POST['notebook'] . "<br>" . $_POST['desktop'] . "<br>" . $_POST['celular'] . "<br>"
+        . $_POST['celularr'] . "<br>" . $_POST['filtrodelinha'] . "<br>" . $_POST['nobreak'] . "<br>" . $_POST['monitores'] . "<br>"
+        . $_POST['impressora'] . "<br>" . $_POST['impressoraa'] . "<br>" . $_POST['libreoffice'] . "<br>" . $_POST['email'] . "<p>Licenças:</p><br>" . $_POST['microsiga'] . "<br>" . $_POST['microsigaa'] . "<br>"
+        . $_POST['autocad'] . "<br>" . $_POST['solid'] . "<br>" . $_POST['pdm'] . "<br>" . $_POST['office'] . "<br>" . $_POST['pwbi'] . "<br>" . $_POST['adobe'] . "<br>" . $_POST['zoom'] . "<br>"
+        . $_POST['skype'] . "<br>" . $_POST['teams'] . "<br>" . $_POST['certificado'] . "<br>" . $_POST['aaa'] . "<br> Caminhos de rede:" . "<br>". $_POST['caixadetexto'] . "<br> Observações: ". "<br>" . $_POST["caixadetexto2"]   ;
+
 
     $mail->Body = $Body;
     //altBody = Texto puro.
