@@ -38,7 +38,7 @@ try {
     $mail->isHTML(true);
 
 
-    //propriedades importantes, a biblioteca phpmailer trabalha em 8 bits, utilizar utf-8 sem o encoding 64 pode causar alguns bugs.
+    //propriedades importantes, a biblioteca phpmailer trabalha em 8 bits, utilizar utf-8 sem o encoding 64 pode causar alguns bugs ficha.pedidoti@furgaoibipora.com senha esta em keys.
 
     $mail->CharSet = 'UTF-8';
     $mail->Encoding = 'base64';
@@ -47,8 +47,8 @@ try {
 
     $mail->Subject = 'Ficha de solicitação';
 
-    //Corpo do e-mail, importante ressaltar que a melhor opção é utilizar o metodo POST e não o GET
-    //Por uma questão de boas praticas e para facilitar o debug.
+    //Corpo do e-mail, importante ressaltar que a melhor opção é utilizar o metodo POST 
+    
 
     $Body = "<h1> Solicitação de equipamento: </h1> <br> <p> Dados do Solicitante:</p><br>
     Nome: " . $_POST['texto1'] . "<br>
