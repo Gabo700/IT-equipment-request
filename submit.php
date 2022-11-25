@@ -7,6 +7,11 @@ require_once('src/PHPMailer.php');
 require_once('src/SMTP.php');
 require_once('src/Exception.php');
 
+//Gerado codigo de pedido
+
+//var_dump( md5(uniqid(mt_rand(),true)));
+
+
 //Chamando a biblioteca 
 
 use PHPMailer\PHPMailer\PHPMailer;
@@ -23,7 +28,7 @@ try {
 
     $mail->isSMTP();
     //$mail->SMTPSecure = false;
-    //$mail->SMTPAutoTLS = false;
+     //$mail->SMTPAutoTLS = false;
     $mail->Host = 'smtp.mailtrap.io';
     $mail->SMTPAuth = true;
     $mail->Username = '4e6cc92533268e';
@@ -33,7 +38,7 @@ try {
     //Destinatario e remetente
     $mail->setFrom('ronaldo@fut.com', 'Ficha de Solicitações');
     $mail->addAddress('teste@gmail.com', 'Gabriel Ribeiro');
-
+    $mail->addCC($_POST['texto4']);
     //Definindo o tipo de mensagem
     $mail->isHTML(true);
 
@@ -50,13 +55,13 @@ try {
     //Corpo do e-mail, importante ressaltar que a melhor opção é utilizar o metodo POST 
     
 
-    $Body = "<h1> Solicitação de equipamento: </h1> <br> <p> Dados do Solicitante:</p><br>
+    $Body = "<table border='1'> <td> <h1> Solicitação de equipamento: </h1> </td></table> <br> <p>Dados do Solicitante:</p>
     Nome: " . $_POST['texto1'] . "<br>
     Cargo: " . $_POST['texto2']. "<br> Local Fisico: " . $_POST['texto3'] . "<br> Contato: " . $_POST['texto4'] ."<br>
     <p> Dados novo colaborador:</p>" . "Nome: ". $_POST['texto5']  . "<br> Cargo: " . $_POST['texto6'] . "<br> Local Fisico: " . $_POST['texto7'] . "<br> Data de inicio: " . $_POST['data']
-     . "<p> Requisições: </P>" . "<br>" . $_POST['notebook'] . "<br>" . $_POST['desktop'] . "<br>" . $_POST['celular'] . "<br>"
+        . "<p> Requisições: </P>" . "<br>" . $_POST['notebook'] . "<br>" . $_POST['desktop'] . "<br>" . $_POST['celular'] . "<br>"
         . $_POST['celularr'] . "<br>" . $_POST['filtrodelinha'] . "<br>" . $_POST['nobreak'] . "<br>" . $_POST['monitores'] . "<br>"
-        . $_POST['impressora'] . "<br>" . $_POST['impressoraa'] . "<br>" . $_POST['libreoffice'] . "<br>" . $_POST['email'] . "<p>Licenças:</p><br>" . $_POST['microsiga'] . "<br>" . $_POST['microsigaa'] . "<br>"
+        . $_POST['impressora'] . "<br>" . $_POST['impressoraa'] . "<br>" . $_POST['libreoffice'] . "<br>" . $_POST['email'] . "<p>Licenças:</p>" . $_POST['microsiga'] . "<br>" . $_POST['microsigaa'] . "<br>"
         . $_POST['autocad'] . "<br>" . $_POST['solid'] . "<br>" . $_POST['pdm'] . "<br>" . $_POST['office'] . "<br>" . $_POST['pwbi'] . "<br>" . $_POST['adobe'] . "<br>" . $_POST['zoom'] . "<br>"
         . $_POST['skype'] . "<br>" . $_POST['teams'] . "<br>" . $_POST['certificado'] . "<br>" . $_POST['aaa'] . "<br> Caminhos de rede:" . "<br>". $_POST['caixadetexto'] . "<br> Observações: ". "<br>" . $_POST["caixadetexto2"]   ;
 
@@ -68,7 +73,43 @@ try {
     //Finalizando o envio do seu e-mail
 
     $mail->send();
-    echo 'Sua ficha foi enviada com sucesso!';
+    echo '<head> <h1> Sua ficha foi enviada com sucesso! </h1>
+
+
+    <style>
+
+    
+
+
+    body {
+        background-color: white;
+    }
+    h1 {
+        text-align: center;
+        color: #29b6c5;
+        padding: 60px;
+    } 
+    
+    
+   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <head>
+    </<style>';
+    
 } catch (Exception $e) {
-    echo "Erro ao enviar ficha codigo: {$mail->ErrorInfo}";
+    echo "Erro ao enviar ficha codigo: {$mail->ErrorInfo}<br>
+    Favor contator seu administrador           
+    ";
 }
+?>
