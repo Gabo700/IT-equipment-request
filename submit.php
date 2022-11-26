@@ -1,6 +1,15 @@
 <?php
 error_reporting(0);
 
+if(isset $_POST['2']($_POST['1'] . $_POST['2']))
+{
+    $os = "Sim";
+   
+}
+else
+{
+    $os = "Não";
+}
 //Digitando o caminho da biblioteca
 
 require_once('src/PHPMailer.php');
@@ -38,7 +47,7 @@ try {
     //Destinatario e remetente
     $mail->setFrom('ronaldo@fut.com', 'Ficha de Solicitações');
     $mail->addAddress('teste@gmail.com', 'Gabriel Ribeiro');
-    $mail->addCC($_POST['texto4']);
+    //$mail->addCC($_POST['texto4']);
     //Definindo o tipo de mensagem
     $mail->isHTML(true);
 
@@ -55,18 +64,312 @@ try {
     //Corpo do e-mail, importante ressaltar que a melhor opção é utilizar o metodo POST 
     
 
-    $Body = "<table border='1'> <td> <h1> Solicitação de equipamento: </h1> </td></table> <br> <p>Dados do Solicitante:</p>
-    Nome: " . $_POST['texto1'] . "<br>
-    Cargo: " . $_POST['texto2']. "<br> Local Fisico: " . $_POST['texto3'] . "<br> Contato: " . $_POST['texto4'] ."<br>
-    <p> Dados novo colaborador:</p>" . "Nome: ". $_POST['texto5']  . "<br> Cargo: " . $_POST['texto6'] . "<br> Local Fisico: " . $_POST['texto7'] . "<br> Data de inicio: " . $_POST['data']
-        . "<p> Requisições: </P>" . "<br>" . $_POST['notebook'] . "<br>" . $_POST['desktop'] . "<br>" . $_POST['celular'] . "<br>"
-        . $_POST['celularr'] . "<br>" . $_POST['filtrodelinha'] . "<br>" . $_POST['nobreak'] . "<br>" . $_POST['monitores'] . "<br>"
-        . $_POST['impressora'] . "<br>" . $_POST['impressoraa'] . "<br>" . $_POST['libreoffice'] . "<br>" . $_POST['email'] . "<p>Licenças:</p>" . $_POST['microsiga'] . "<br>" . $_POST['microsigaa'] . "<br>"
-        . $_POST['autocad'] . "<br>" . $_POST['solid'] . "<br>" . $_POST['pdm'] . "<br>" . $_POST['office'] . "<br>" . $_POST['pwbi'] . "<br>" . $_POST['adobe'] . "<br>" . $_POST['zoom'] . "<br>"
-        . $_POST['skype'] . "<br>" . $_POST['teams'] . "<br>" . $_POST['certificado'] . "<br>" . $_POST['aaa'] . "<br> Caminhos de rede:" . "<br>". $_POST['caixadetexto'] . "<br> Observações: ". "<br>" . $_POST["caixadetexto2"]   ;
+    $html = '';
+    $html .= '<table border="1">';
+    $html .= '<tr>';
+    $html .= '<td colspan="10">Pedido de equipamentos ao TI</td>';
+    $html .= '</tr>';
+
+    $html .= '<tr>';
+    $html .= '<td colspan="10"><b>Nome completo: </b>'.$_POST['texto1'];
+    $html .= '</td>';
+    $html .= '</tr>';
+    $html .= '<tr>';
+    $html .= '<td colspan="5"><b>Função: </b>'. $_POST['texto2'];
+    $html .= '<td colspan="5"><b>Matricula: </b>'. $_POST['matricula'];
+    $html .= '</td>';
+    $html .= '</td>';
+    $html .= '</tr>';
+    $html .= '<td colspan="5"><b>Local Fisico: </b>'. $_POST['texto3'];
+    $html .= '<td colspan="5"><b>Centro de custo: </b>'. $_POST['centro de custo'];
+    $html .= '</td>';
+    $html .= '</td>';
+    $html .= '</tr>';
+    $html .= '<td colspan="10"><b>Data de inicio: </b>'. $_POST['data'];
+    $html .= '</td>';
+    $html .= '<tr>';
+    $html .= '<td colspan="10">Solicitante do equipamento </td>';
+    $html .= '</tr>';
+    $html .= '<tr>';
+    $html .= '<td colspan="10"><b>Nome completo: </b>'.$_POST['texto1'];
+    $html .= '</td>';
+    $html .= '</tr>';
+    $html .= '<tr>';
+    $html .= '<td colspan="5"><b>Função: </b>'. $_POST['texto2'];
+    $html .= '<td colspan="5"><b>Contato: </b>'. $_POST['texto4'];
+    $html .= '</td>';
+    $html .= '</td>';
+    $html .= '</tr>';
+    $html .= '<tr>';
+    $html .= '<td colspan="5"><b>Local Fisico: </b>'. $_POST['texto4'];
+    $html .= '<td colspan="5"><b>Data de inicio: </b>'. $_POST['data'];
+    $html .= '</td>';
+    $html .= '</td>';
+    $html .= '</tr>';
+    
+    
+    
+ 
+    $html .= '<tr>';
+    $html .= '<td colspan="10">Solicitações</td>';
+    $html .= '</tr>';
 
 
-    $mail->Body = $Body;
+    $html .= '<tr>';
+    $html .= '<td>';
+    $html .= 'Notebook';
+    $html .= '</td>';
+    $html .= '<td>'. $os;
+    $html .= '</td>' ;
+    $html .= '<td>Não</td>';
+    $html .= '</td>';
+    $html .= '<td colspan="10">licenças';
+    $html .= '</td>';
+    $html .= '</td>';
+    $html .= '</tr>';
+    $html .= '<tr>';
+
+
+    $html .= '<tr>';
+    $html .= '<td>';
+    $html .= 'Notebook';
+    $html .= '</td>';
+    $html .= '<td>'. $os;
+    $html .= '</td>';
+    $html .= '<td colspan="1">Não</td>';
+    $html .= '<td colspan="10"><b>Login</b>';
+    $html .= '</td>';
+    $html .= '<tr>';
+    $html .= '<td>';
+    $html .= 'Notebook';
+    $html .= '</td>';
+    $html .= '<td>'. $_POST['notebook'];
+    $html .= '</td>' ;
+    $html .= '<td colspan="1">Não</td>';
+    $html .= '<td colspan="1">Login AutoCAD 2019';
+    $html .= '<td colspan="4">Sim';
+    $html .= '<td colspan="4">Não';
+    $html .= '</td>';
+    $html .= '</td>';
+    $html .= '</td>';
+    $html .= '<tr>';
+    $html .= '<td>';
+    $html .= 'Notebook';
+    $html .= '</td>';
+    $html .= '<td>'. $_POST['notebook'];
+    $html .= '</td>' ;
+    $html .= '<td colspan="1">Não</td>';
+    $html .= '<td colspan="1">Login AutoCAD 2019';
+    $html .= '<td colspan="4">Sim';
+    $html .= '<td colspan="4">Não';
+    $html .= '</td>';
+    $html .= '</td>';
+    $html .= '</td>';
+    $html .= '</td>';
+    $html .= '<tr>';
+    $html .= '<td>';
+    $html .= 'Notebook';
+    $html .= '</td>';
+    $html .= '<td>'. $_POST['notebook'];
+    $html .= '</td>' ;
+    $html .= '<td colspan="1">Não</td>';
+    $html .= '<td colspan="1">Login AutoCAD 2019';
+    $html .= '<td colspan="4">Sim';
+    $html .= '<td colspan="4">Não';
+    $html .= '</td>';
+    $html .= '</td>';
+    $html .= '</td>';
+    $html .= '</td>';
+    $html .= '<tr>';
+    $html .= '<td>';
+    $html .= 'Notebook';
+    $html .= '</td>';
+    $html .= '<td>'. $_POST['notebook'];
+    $html .= '</td>' ;
+    $html .= '<td colspan="1">Não</td>';
+    $html .= '<td colspan="1">Login AutoCAD 2019';
+    $html .= '<td colspan="4">Sim';
+    $html .= '<td colspan="4">Não';
+    $html .= '</td>';
+    $html .= '</td>';
+    $html .= '</td>';
+    $html .= '</td>';
+    $html .= '<tr>';
+    $html .= '<td>';
+    $html .= 'Notebook';
+    $html .= '</td>';
+    $html .= '<td>'. $_POST['notebook'];
+    $html .= '</td>' ;
+    $html .= '<td colspan="1">Não</td>';
+    $html .= '<td colspan="1">Login AutoCAD 2019';
+    $html .= '<td colspan="4">Sim';
+    $html .= '<td colspan="4">Não';
+    $html .= '</td>';
+    $html .= '</td>';
+    $html .= '</td>';
+    $html .= '</td>';
+    $html .= '<tr>';
+    $html .= '<td>';
+    $html .= 'Notebook';
+    $html .= '</td>';
+    $html .= '<td>'. $_POST['notebook'];
+    $html .= '</td>' ;
+    $html .= '<td colspan="1">Não</td>';
+    $html .= '<td colspan="1">Login AutoCAD 2019';
+    $html .= '<td colspan="4">Sim';
+    $html .= '<td colspan="4">Não';
+    $html .= '</td>';
+    $html .= '</td>';
+    $html .= '</td>';
+    $html .= '</td>';
+    $html .= '<tr>';
+    $html .= '<td>';
+    $html .= 'Notebook';
+    $html .= '</td>';
+    $html .= '<td>'. $_POST['notebook'];
+    $html .= '</td>' ;
+    $html .= '<td colspan="1">Não</td>';
+    $html .= '<td colspan="1">Login AutoCAD 2019';
+    $html .= '<td colspan="4">Sim';
+    $html .= '<td colspan="4">Não';
+    $html .= '</td>';
+    $html .= '</td>';
+    $html .= '</td>';
+    $html .= '</td>';
+    $html .= '<tr>';
+    $html .= '<td>';
+    $html .= 'Notebook';
+    $html .= '</td>';
+    $html .= '<td>'. $_POST['notebook'];
+    $html .= '</td>' ;
+    $html .= '<td colspan="1">Não</td>';
+    $html .= '<td colspan="1">Login AutoCAD 2019';
+    $html .= '<td colspan="4">Sim';
+    $html .= '<td colspan="4">Não';
+    $html .= '</td>';
+    $html .= '</td>';
+    $html .= '</td>';
+    $html .= '</td>';
+    $html .= '<tr>';
+    $html .= '<td>';
+    $html .= 'Notebook';
+    $html .= '</td>';
+    $html .= '<td>'. $_POST['notebook'];
+    $html .= '</td>' ;
+    $html .= '<td colspan="1">Não</td>';
+    $html .= '<td colspan="1">Login AutoCAD 2019';
+    $html .= '<td colspan="4">Sim';
+    $html .= '<td colspan="4">Não';
+    $html .= '</td>';
+    $html .= '</td>';
+    $html .= '</td>';
+    $html .= '</td>';
+    $html .= '<tr>';
+    $html .= '<td>';
+    $html .= 'Notebook';
+    $html .= '</td>';
+    $html .= '<td>'. $_POST['notebook'];
+    $html .= '</td>' ;
+    $html .= '<td colspan="1">Não</td>';
+    $html .= '<td colspan="1">Login AutoCAD 2019';
+    $html .= '<td colspan="4">Sim';
+    $html .= '<td colspan="4">Não';
+    $html .= '</td>';
+    $html .= '</td>';
+    $html .= '</td>';
+    $html .= '</td>';
+    $html .= '<tr>';
+    $html .= '<td>';
+    $html .= 'Notebook';
+    $html .= '</td>';
+    $html .= '<td>'. $_POST['notebook'];
+    $html .= '</td>' ;
+    $html .= '<td colspan="1">Não</td>';
+    $html .= '<td colspan="1">Login AutoCAD 2019';
+    $html .= '<td colspan="4">Sim';
+    $html .= '<td colspan="4">Não';
+    $html .= '</td>';
+    $html .= '</td>';
+    $html .= '</td>';
+    $html .= '</td>';
+    $html .= '<tr>';
+    $html .= '<td>';
+    $html .= 'Notebook';
+    $html .= '</td>';
+    $html .= '<td>'. $_POST['notebook'];
+    $html .= '</td>' ;
+    $html .= '<td colspan="1">Não</td>';
+    $html .= '<td colspan="1">Login AutoCAD 2019';
+    $html .= '<td colspan="4">Sim';
+    $html .= '<td colspan="4">Não';
+    $html .= '</td>';
+    $html .= '</td>';
+    $html .= '</td>';
+    $html .= '</td>';
+    $html .= '<tr>';
+    $html .= '<td>';
+    $html .= 'Notebook';
+    $html .= '</td>';
+    $html .= '<td>'. $_POST['notebook'];
+    $html .= '</td>' ;
+    $html .= '<td colspan="1">Não</td>';
+    $html .= '<td colspan="1">Login AutoCAD 2019';
+    $html .= '<td colspan="4">Sim';
+    $html .= '<td colspan="4">Não';
+    $html .= '</td>';
+    $html .= '</td>';
+    $html .= '</td>';
+    $html .= '</td>';
+    $html .= '<tr>';
+    $html .= '<td>';
+    $html .= 'Notebook';
+    $html .= '</td>';
+    $html .= '<td>'. $_POST['notebook'];
+    $html .= '</td>' ;
+    $html .= '<td colspan="1">Não</td>';
+    $html .= '<td colspan="1">Login AutoCAD 2019';
+    $html .= '<td colspan="4">Sim';
+    $html .= '<td colspan="4">Não';
+    $html .= '</td>';
+    $html .= '</td>';
+    $html .= '</td>';
+    $html .= '</td>';
+    $html .= '<tr>';
+    $html .= '<td>';
+    $html .= 'Notebook';
+    $html .= '</td>';
+    $html .= '<td>'. $_POST['notebook'];
+    $html .= '</td>' ;
+    $html .= '<td colspan="1">Não</td>';
+    $html .= '<td colspan="1">Login AutoCAD 2019';
+    $html .= '<td colspan="4">Sim';
+    $html .= '<td colspan="4">Não';
+    $html .= '</td>';
+    $html .= '</td>';
+    $html .= '</td>';
+    $html .= '</td>';
+
+    $html .= '<tr>';
+    $html .= '<td colspan="10">Acessos de Rede:</td>';
+    $html .= '<tr>'. $_POST['caixadetexto'];
+    $html .= '</tr>';
+    $html .= '</tr>';
+
+
+    $html .= '<tr>';
+    $html .= '<td colspan="10">Observaçoes:</td>';
+    $html .= '<tr>'. $_POST['caixadetexto2'];
+    $html .= '</tr>';
+    $html .= '</tr>';
+
+
+    $html .= '</table>';
+
+
+
+
+
+    $mail->Body = $html;
     //altBody = Texto puro.
     $mail->AltBody = '';
 
@@ -74,13 +377,7 @@ try {
 
     $mail->send();
     echo '<head> <h1> Sua ficha foi enviada com sucesso! </h1>
-
-
     <style>
-
-    
-
-
     body {
         background-color: white;
     }
@@ -89,21 +386,7 @@ try {
         color: #29b6c5;
         padding: 60px;
     } 
-    
-    
-   
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     <head>
     </<style>';
     
