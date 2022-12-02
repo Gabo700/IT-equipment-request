@@ -1,15 +1,15 @@
 <?php
 error_reporting(0);
 
-if(isset $_POST['2']($_POST['1'] . $_POST['2']))
-{
-    $os = "Sim";
+//if(isset($_POST['1']))
+//{
+ //   $os = "Sim";
    
-}
-else
-{
+//}
+//else
+//{
     $os = "Não";
-}
+//}
 //Digitando o caminho da biblioteca
 
 require_once('src/PHPMailer.php');
@@ -63,7 +63,7 @@ try {
 
     //Corpo do e-mail, importante ressaltar que a melhor opção é utilizar o metodo POST 
     
-
+    
     $html = '';
     $html .= '<table border="1">';
     $html .= '<tr>';
@@ -134,7 +134,7 @@ try {
     $html .= '<td>';
     $html .= 'Notebook';
     $html .= '</td>';
-    $html .= '<td>'. $os;
+    $html .= '<td>'. $_POST['notebook'];
     $html .= '</td>';
     $html .= '<td colspan="1">Não</td>';
     $html .= '<td colspan="10"><b>Login</b>';
