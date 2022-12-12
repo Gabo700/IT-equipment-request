@@ -1,6 +1,6 @@
 <?php
 
-//Chamando a biblioteca 
+
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -52,39 +52,34 @@ $mail = new PHPMailer(true);
 
 try {
 
-    //Setando as configuraçoes do servidor
+   
     //$mail->SMTPDebug = SMTP:: DEBUG_SERVER; 
 
     $mail->isSMTP();
     $mail->SMTPSecure = false;
     $mail->SMTPAutoTLS = false;
-    $mail->Host = 'smtp.furgaoibipora.com.br';
+    $mail->Host = '********************';
     $mail->SMTPAuth = true;
-    $mail->Username = 'ficha.pedidoti@furgaoibipora.com';
-    $mail->Password = '794514@ibi';
-    $mail->Port = 587;
+    $mail->Username = '**********************';
+    $mail->Password = '*********';
+    $mail->Port = ***;
 
-    //Destinatario e remetente
-    $mail->setFrom('ficha.pedidoti@furgaoibipora.com', 'Ficha de Solicitações');
-    $mail->addAddress('ti@furgaoibipora.com.br', 'Wesley');
-    $mail->addCC('manutencao.ti@furgaoibipora.com.br', 'Gabriel');
-    $mail->addCC('suporte@furgaoibipora.com.br', 'Lucas');
-    $mail->addCC('info@furgaoibipora.com.br', 'Audrey');
+    $mail->setFrom('**********************', 'Ficha de Solicitações');
+    $mail->addAddress('**********************', 'address');
     $mail->addCC($_POST['contact']); 
     
-    //Definindo o tipo de mensagem
+
     $mail->isHTML(true);
 
-    //propriedades importantes, a biblioteca phpmailer trabalha em 8 bits, utilizar utf-8 
+
 
     $mail->CharSet = 'UTF-8';
     $mail->Encoding = 'base64';
 
-    //Definido o titulo do e-mail e o codigo "hash"
 
     $mail->Subject = 'Ficha de solicitação Nº:  ' . $hash;
 
-    //Corpo do e-mail:
+    
     $html = '';
     $html .= '<table border="1">';
     $html .= '<tr>';
@@ -357,9 +352,7 @@ try {
     $html .= '<br> Este é um e-mail automático, por favor, não responda.';
 
     $mail->Body = $html;
-    //altBody = Texto puro.
-
-    //Finalizando.
+    
 
     $mail->send();
     echo '
