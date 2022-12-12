@@ -5,6 +5,10 @@ generating a unique code for each request and sending an email to the user with 
 
 Library used: PHPMAILER
 
+-- Shows instability and bugs in older versions of PHP --
+
+
+
 
 
 Autor: Gabriel Ribeiro
