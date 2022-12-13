@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
+
+
 * {
   margin: 0;
   padding: 0;
@@ -28,7 +30,7 @@ body {
   background: white;
   display: grid;
   grid-template-columns: 35% 40% 35%;
-  grid-template-rows: 50px 800px 70px;
+  grid-template-rows: 50px 800px 60px;
   grid-row-gap: 30px;
   grid-template-areas: "titulo  titulo"
     "esquerda direitaa "
@@ -45,7 +47,7 @@ body {
 }
 
 .esquerda {
-  top: -20px;
+  top: -82px;
   position: relative;
   background: white;
   grid-area: esquerda;
@@ -54,6 +56,7 @@ body {
 
 .direita {
   position: relative;
+  top: -15px;
   left: 290px;
   background: white;
   grid-area: direitaa;
@@ -61,11 +64,10 @@ body {
 
 .meio {
   position: relative;
-  top: -903px;
+  top: -945px;
   left: -280px;
   background: white;
   grid-area: meio;
-
 }
 
 .rodape {
@@ -74,8 +76,7 @@ body {
   background: white;
   grid-area: footer;
   left: 420px;
-  top: -35px;
-
+  top: -29px;
 }
 
 .checkbox {
@@ -144,7 +145,7 @@ body {
 
 .input-single {
   position: relative;
-  width: 200px;
+  width: 250px;
   margin: 14px 0;
 }
 
@@ -228,6 +229,7 @@ form p {
 }
 
 form input[type=submit] {
+  top: 10px;
   padding: 10px 30px;
   border: 0;
   border-radius: 10px;
@@ -272,7 +274,54 @@ input::-webkit-calendar-picker-indicator {
   font-size: 15px;
 }
 
-@media screen and (max-width: 1000px) {
+.label-float {
+  position: relative;
+  padding-top: 13px;
+  color: #808080;
+
+}
+
+.label-float input {
+  border: 0;
+  border-bottom: 2px solid #808080;
+  outline: none;
+  width: 250px;
+  font-size: 16px;
+  transition: all 0.6s ease-out;
+
+  border-radius: 0;
+}
+
+.label-float input:focus {
+  border-bottom: 2px solid #808080;
+}
+
+.label-float input::placeholder {
+  color: transparent;
+}
+
+.label-float label {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: 13px;
+  transition: all 0.6s ease-out;
+
+}
+
+.label-float input:required:invalid+label:before {
+  content: '*';
+}
+
+.label-float input:focus+label,
+.label-float input:not(:placeholder-shown)+label {
+  font-size: 13px;
+  margin-top: 0;
+  color: #29b6c5;
+}
+
+@media screen and (max-width: 1080px) {
 
   body {
     min-height: 100vh;
@@ -280,18 +329,89 @@ input::-webkit-calendar-picker-indicator {
     margin: auto;
     background-position: center;
     background-size: cover;
-    overflow-y: hidden;
+    overflow-y: visible;
+    overflow-x: hidden;
+  }
+
+  .meio {
+    left: 10px;
+
+  }
+
+  .rodape {
+
+    position: relative;
+    text-align: center;
+    background: white;
+    grid-area: footer;
+    left: 420px;
+    top: 5px;
+  }
+
+
+}
+
+@media screen and (max-width: 990px) {
+
+  body {
+    min-height: 100vh;
+    max-width: 1500px;
+    margin: auto;
+    background-position: center;
+    background-size: cover;
+    overflow-y: visible;
     overflow-x: visible;
   }
 
   .meio {
-
     left: 10px;
 
   }
+
+  .rodape {
+
+    position: relative;
+    text-align: center;
+    background: white;
+    grid-area: footer;
+    left: 420px;
+    top: 5px;
+  }
+
+
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 960px) {
+
+  body {
+    min-height: 100vh;
+    max-width: 1500px;
+    margin: auto;
+    background-position: center;
+    background-size: cover;
+    overflow-y: visible;
+    overflow-x: visible;
+  }
+
+  .meio {
+    left: 10px;
+
+  }
+
+  .rodape {
+
+    position: relative;
+    text-align: center;
+    background: white;
+    grid-area: footer;
+    left: 420px;
+    top: 5px;
+  }
+
+
+}
+
+@media screen and (max-width: 640px) {
 
   body {
     min-height: 100vh;
@@ -316,20 +436,19 @@ input::-webkit-calendar-picker-indicator {
       "direitaa "
       "meio"
       "footer";
-
   }
 
   .top {
     padding: 5px;
     top: 11px;
     grid-area: titulo;
-    left: -10px;
+    left: -5px;
   }
-
 
   .direita {
     grid-area: direitaa;
     left: -50px;
+    top: -120px;
   }
 
   .esquerda {
@@ -342,13 +461,262 @@ input::-webkit-calendar-picker-indicator {
   .rodape {
     padding: 5px;
     grid-area: footer;
-    top: 1220px;
-    left: -50px;
+    top: 1165px;
+    left: -20px;
   }
 
   .meio {
     grid-area: meio;
-    top: 770px;
+    top: 680px;
+    left: -50px;
+
+  }
+}
+
+@media screen and (max-width: 460px) {
+
+  body {
+    min-height: 100vh;
+    max-width: 1500px;
+    margin: auto;
+    background-position: center;
+    background-size: cover;
+    overflow-y: visible;
+    overflow-x: hidden;
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: 50%;
+    grid-template-rows: 50px 800px 70px 50px;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    justify-items: start;
+    align-items: start;
+    grid-template-areas: " titulo"
+      "esquerda"
+      "direitaa "
+      "meio"
+      "footer";
+  }
+
+  .top {
+    padding: 5px;
+    top: 11px;
+    grid-area: titulo;
+    left: -5px;
+  }
+
+  .direita {
+    grid-area: direitaa;
+    left: -50px;
+    top: -120px;
+  }
+
+  .esquerda {
+    grid-area: esquerda;
+    top: 38px;
+    left: -50px;
+
+  }
+
+  .rodape {
+    padding: 5px;
+    grid-area: footer;
+    top: 1165px;
+    left: -25px;
+    top: 1190px;
+  }
+
+  .meio {
+    grid-area: meio;
+    top: 680px;
+    left: -50px;
+
+  }
+}
+
+@media screen and (max-width: 428px) {
+
+  body {
+    min-height: 100vh;
+    max-width: 1500px;
+    margin: auto;
+    background-position: center;
+    background-size: cover;
+    overflow-y: visible;
+    overflow-x: hidden;
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: 50%;
+    grid-template-rows: 50px 800px 70px 50px;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    justify-items: start;
+    align-items: start;
+    grid-template-areas: " titulo"
+      "esquerda"
+      "direitaa "
+      "meio"
+      "footer";
+  }
+
+  .top {
+    padding: 5px;
+    top: 11px;
+    grid-area: titulo;
+    left: -5px;
+  }
+
+  .direita {
+    grid-area: direitaa;
+    left: -50px;
+    top: -120px;
+  }
+
+  .esquerda {
+    grid-area: esquerda;
+    top: 38px;
+    left: -50px;
+
+  }
+
+  .rodape {
+    padding: 5px;
+    grid-area: footer;
+    top: 1140px;
+    left: -20px;
+  }
+
+  .meio {
+    grid-area: meio;
+    top: 680px;
+    left: -50px;
+
+  }
+}
+
+@media screen and (max-width: 414px) {
+
+  body {
+    min-height: 100vh;
+    max-width: 1500px;
+    margin: auto;
+    background-position: center;
+    background-size: cover;
+    overflow-y: visible;
+    overflow-x: hidden;
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: 50%;
+    grid-template-rows: 50px 800px 70px 50px;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    justify-items: start;
+    align-items: start;
+    grid-template-areas: " titulo"
+      "esquerda"
+      "direitaa "
+      "meio"
+      "footer";
+  }
+
+  .top {
+    padding: 5px;
+    top: 11px;
+    grid-area: titulo;
+    left: -5px;
+  }
+
+  .direita {
+    grid-area: direitaa;
+    left: -50px;
+    top: -120px;
+  }
+
+  .esquerda {
+    grid-area: esquerda;
+    top: 38px;
+    left: -50px;
+
+  }
+
+  .rodape {
+    padding: 5px;
+    grid-area: footer;
+    top: 1140px;
+    left: -20px;
+  }
+
+  .meio {
+    grid-area: meio;
+    top: 680px;
+    left: -50px;
+
+  }
+}
+
+@media screen and (max-width: 412px) {
+
+  body {
+    min-height: 100vh;
+    max-width: 1500px;
+    margin: auto;
+    background-position: center;
+    background-size: cover;
+    overflow-y: visible;
+    overflow-x: hidden;
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: 50%;
+    grid-template-rows: 50px 800px 70px 50px;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    justify-items: start;
+    align-items: start;
+    grid-template-areas: " titulo"
+      "esquerda"
+      "direitaa "
+      "meio"
+      "footer";
+  }
+
+  .top {
+    padding: 5px;
+    top: 11px;
+    grid-area: titulo;
+    left: -5px;
+  }
+
+  .direita {
+    grid-area: direitaa;
+    left: -50px;
+    top: -120px;
+  }
+
+  .esquerda {
+    grid-area: esquerda;
+    top: 38px;
+    left: -50px;
+
+  }
+
+  .rodape {
+    padding: 5px;
+    grid-area: footer;
+    top: 1140px;
+    left: -20px;
+  }
+
+  .meio {
+    grid-area: meio;
+    top: 680px;
     left: -50px;
 
   }
@@ -379,20 +747,19 @@ input::-webkit-calendar-picker-indicator {
       "direitaa "
       "meio"
       "footer";
-
   }
 
   .top {
     padding: 5px;
     top: 11px;
     grid-area: titulo;
-    left: -10px;
+    left: 10px;
   }
 
   .direita {
     grid-area: direitaa;
     left: -50px;
-
+    top: -120px;
   }
 
   .esquerda {
@@ -405,13 +772,13 @@ input::-webkit-calendar-picker-indicator {
   .rodape {
     padding: 5px;
     grid-area: footer;
-    top: 1220px;
-    left: -50px;
+    top: 1140px;
+    left: -20px;
   }
 
   .meio {
     grid-area: meio;
-    top: 770px;
+    top: 680px;
     left: -50px;
 
   }
