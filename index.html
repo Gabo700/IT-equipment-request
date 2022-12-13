@@ -23,7 +23,7 @@
 
             <aside class="esquerda">
 
-                <p>Solicitação de equipamento</p>
+                <p>Dados do Solicitante:</p>
 
                 <div class="input-single">
                     <input class="input" type="text" name="texto1" id="texto1" required autocomplete="OFF" require>
@@ -31,17 +31,10 @@
                 </div>
 
 
-                <div class="input-single">
-                    <input class="input" type="text" name="matricula" id="matricula"
+                <div class="label-float">
+                    <input type="text" name="centrodecusto" id="centrodecusto"
                         oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
-                        required autocomplete="OFF" require />
-                    <label for="matricula">Matricula</label>
-                </div>
-
-                <div class="input-single">
-                    <input class="input" type="text" name="centrodecusto" id="centrodecusto"
-                        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
-                        required autocomplete="OFF" require />
+                        autocomplete="OFF" require maxlength="11" placeholder="" />
                     <label for="centrodecusto">Centro de custo</label>
                 </div>
 
@@ -53,7 +46,8 @@
                 </div>
 
                 <div class="input-single">
-                    <input class="input" type="text" name="localfisico" id="localfisico" required autocomplete="OFF" require>
+                    <input class="input" type="text" name="localfisico" id="localfisico" required autocomplete="OFF"
+                        require>
                     <label for="localfisico">Local Fisico</label>
                 </div>
 
@@ -135,6 +129,15 @@
                     <label for="texto6">Cargo</label>
                 </div>
 
+
+                <div class="label-float">
+                    <input type="text" name="matricula" id="matricula"
+                        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                        autocomplete="OFF" require maxlength="6" placeholder="" />
+                    <label for="matricula">Matricula</label>
+                </div>
+
+
                 <div class="input-single">
                     <input class="input" type="text" name="texto7" id="texto7" required autocomplete="OFF" require>
                     <label for="texto7">Local Fisico</label>
@@ -147,7 +150,7 @@
                     <label id="data" name="data" for="data">Data de inicio:</label>
                 </div>
                 <br>
-                <p>Licença (nescessario aprovação da diretoria)</p>
+                <p>Licenças (nescessario aprovação da diretoria)</p>
 
                 <div class="checkbox">
                     <input type="checkbox" id="microsiga" name="microsiga" value="Sim">
@@ -232,12 +235,13 @@
                     <label for="box29">
                         <p>Caminhos de rede leitura e escrita: </p>
                     </label>
-                    <textarea type="text" class="textarea" id="leituraeescrita" name="leituraeescrita" rows="5" cols="33"
-                        placeholder="//fib/Publico (exemplo)" word-wrap="hard"></textarea>
+                    <textarea type="text" class="textarea" id="leituraeescrita" name="leituraeescrita" rows="5"
+                        cols="33" placeholder="//fib/Publico (exemplo)" word-wrap="hard"></textarea>
                 </div>
 
                 <div>
                     <label for="box29">
+                        <br>
                         <p>Rede leitura:</p>
                     </label>
                     <textarea type="text" class="textarea" id="leitura" name="leitura" rows="5" cols="33"
@@ -246,7 +250,8 @@
 
                 <div>
                     <label for="box29">
-                        <p>Observações: </p>
+                        <br>
+                        <p>Observações:</p>
                     </label>
                     <textarea type="text" class="textarea" id="observacoes" name="observacoes" rows="5" cols="33"
                         placeholder="Leitor de códigos (exemplo)" word-wrap="hard"></textarea>
@@ -256,12 +261,14 @@
             <footer class="rodape">
 
                 <div class="butt"><input type="submit" value="Enviar"></div><br>
-                Solicitação de mesa, ramal, ponto de rede e energia ficam a cargo da manutenção: vinicius.mille@furgaoibipora.com.br / Ramal: 5083 <br>
+                Solicitação de mesa, ramal, ponto de rede e energia ficam a cargo da manutenção:
+                vinicius.mille@furgaoibipora.com.br / Ramal: 5083 <br>
                 Solicitações mais complexas passam pela avaliação da diretoria. <br>
-                
-                
-                </div><br>
-            </footer>
+
+
+        </div><br>
+        </footer>
     </form>
 </body>
+
 </html>
