@@ -9,6 +9,13 @@ Library used: PHPMAILER
 
 
 
+![image](https://user-images.githubusercontent.com/82044329/220796627-235a6f1d-2f4b-4590-b048-a82ecdd71ed6.png)
+
+![image](https://user-images.githubusercontent.com/82044329/220796668-2c1a2549-0de1-48b7-a074-d93fa3907b18.png)
+
+![image](https://user-images.githubusercontent.com/82044329/220797136-459012f2-18cf-44fd-b40e-e1856e1f930a.png)
+
+
 
 
 Autor: Gabriel Ribeiro
